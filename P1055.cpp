@@ -27,8 +27,6 @@ int main(){
                 cin >> ch;
                 a[i][j] = ch - '0';
                 sum[i][j] = a[i][j] + sum[i][j - 1] + sum[i - 1][j] - sum[i - 1][j - 1];
-//                sumx[i][j] = sumx[i][j - 1] + j * a[i][j];
-//                sumy[i][j] = sumy[i - 1][j] + i * a[i][j];
             }
         }
         for (int i = 1; i <= r; ++i){
@@ -37,11 +35,6 @@ int main(){
                 sumy[i][j] = sumy[i][j - 1] + j * (sum[i][j] - sum[i][j - 1]);
             }
         }
-//        for (int i = 1; i <= r; ++i){
-//            for (int j = 1; j <= c; ++j)
-//                cout << sumx[i][j] << ' ';
-//            cout << endl;
-//        }
         bool flag = false;
         for (int k = min(r, c); k >= 3; --k){
             for (int i = 1; i <= r - k + 1; ++i){

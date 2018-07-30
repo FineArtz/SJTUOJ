@@ -57,8 +57,10 @@ int main(){
         if (!(sta[i] & a[2])){
             for (int j = 1; j <= cnt; ++j){
                 if (!(sta[j] & a[1])){
-                    f[2][i][j] = max(f[2][i][j], f[1][j][0] + sum[i]);
-                    ans = max(ans, f[1][i][0]);
+                    if (!(sta[i] & sta[j])){
+                        f[2][i][j] = max(f[2][i][j], f[1][j][0] + sum[i]);
+                        ans = max(ans, f[1][i][0]);
+                    }
                 }
             }
         }
